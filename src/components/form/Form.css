@@ -1,0 +1,41 @@
+.container{
+    margin: 100px;
+    background-color: bisque;
+}
+
+input{
+    height: 30px;
+    border-radius: 3px;
+    border: 1px;
+    /* width: 100%; */
+}
+
+form{
+    /* margin: 100px; */
+}
+
+.infoEmployee, .containerCity, .containerStateZip{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.firstNameBox, .lastNameBox, .birthdayBox, .startDateBox, .streetBox, .cityBox, .zipCodeBox, .stateBox{
+    display: flex;
+    flex-direction: column;
+}
+
+.firstNameBox, .lastNameBox, .birthdayBox, .startDateBox{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.containerNames, .containerDates{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    /* width: 100%; */
+}
+

@@ -1,0 +1,11 @@
+.main{
+    background-color: rgb(135, 0, 72);
+    height: 100vh;
+}
+main h1{
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin-top: 80px;
+    font-size: 40px;
+}

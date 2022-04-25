@@ -20,7 +20,7 @@ const MuidataTable = () => {
       label: "Last name",
       options: {
         filter: true,
-        sort: false,
+        sort: true,
       },
     },
     {
@@ -28,7 +28,7 @@ const MuidataTable = () => {
       label: "Date of birth",
       options: {
         filter: true,
-        sort: false,
+        sort: true,
       },
     },
     {
@@ -36,7 +36,7 @@ const MuidataTable = () => {
       label: "Start date",
       options: {
         filter: true,
-        sort: false,
+        sort: true,
       },
     },
     {
@@ -44,7 +44,7 @@ const MuidataTable = () => {
       label: "Street",
       options: {
         filter: true,
-        sort: false,
+        sort: true,
       },
     },
     {
@@ -52,7 +52,7 @@ const MuidataTable = () => {
       label: "City",
       options: {
         filter: true,
-        sort: false,
+        sort: true,
       },
     },
     {
@@ -60,7 +60,7 @@ const MuidataTable = () => {
       label: "State",
       options: {
         filter: true,
-        sort: false,
+        sort: true,
       },
     },
     {
@@ -68,7 +68,7 @@ const MuidataTable = () => {
       label: "Zip code",
       options: {
         filter: true,
-        sort: false,
+        sort: true,
       },
     },
     {
@@ -76,7 +76,7 @@ const MuidataTable = () => {
       label: "Departement",
       options: {
         filter: true,
-        sort: false,
+        sort: true,
       },
     },
   ];
@@ -94,11 +94,27 @@ const MuidataTable = () => {
       zipCode: "45638",
       departement: "Co",
     },
+    {
+      firstName: "Ellioth",
+      lastName: "Reeds",
+      dateBirth: "06/10/1995",
+      startDate: "04/09/2022",
+      street: "78 Arnold Shmith street",
+      city: "Denver",
+      state: "DEN",
+      zipCode: "45638",
+      departement: "Co",
+    },
   ];
 
 
   const options = {
-    filterType: "'textField",
+    filterType: "dropdown",
+    selectableRows : "none",
+    print: false,
+    download: false,
+    responsive: 'standard',
+    customBodyRender: (rowIndex, dataIndex) => dataIndex.rowIndex + 1  
   };
 
   return (

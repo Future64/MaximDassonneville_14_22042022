@@ -1,0 +1,26 @@
+.boxTable{
+    background-color: rgb(135, 0, 72);
+    border-radius: 8px;
+    padding: 50px;
+    margin: 50px;
+}
+.wrapper{
+    background-color: rgb(135, 0, 72);
+    height: 100vh;
+}
+.headerForm{
+    margin-top: -20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.headerForm h1{
+    color: white;
+    margin-top: 80px;
+    font-size: 40px;
+}
+.lineForm{
+    color: white;
+}

@@ -1,0 +1,49 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    height: 50px;
+    /* background-color: white; */
+    background-color: rgb(0, 0, 0);
+
+}
+.logo{
+    /* display: flex;
+    flex-direction: column; */
+    border: solid;
+    padding: 5px;
+    /* transform: rotate(-15deg); */
+    margin-left: 20px;
+    border-color: rgba(255, 64, 0, 0.298);
+    border-radius: 2px;
+}
+.H, .R{
+font-size: 20px;
+font-weight: 800;
+}
+.H{
+font-style: oblique;
+color: brown;
+}
+.R{
+    color: rgb(217, 105, 105);
+}
+.net{
+font-size: 11px;
+font-style: italic;
+color: rgb(213, 202, 252);
+}
+
+.navlink{
+    color: white;
+    text-decoration: none;
+    font-weight: 800;
+    margin-right: 55px;
+}
+/* .navlink1{
+    margin-right: 55px;
+}
+.navlink2{
+    margin-right: 55px;
+} */
