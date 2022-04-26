@@ -1,0 +1,23 @@
+.logo{
+    border: solid;
+    padding: 5px;
+    margin-left: 20px;
+    border-color: rgba(255, 64, 0, 0.298);
+    border-radius: 2px;
+}
+.H, .R{
+font-size: 20px;
+font-weight: 800;
+}
+.H{
+font-style: oblique;
+color: brown;
+}
+.R{
+    color: rgb(217, 105, 105);
+}
+.net{
+font-size: 11px;
+font-style: italic;
+color: rgb(213, 202, 252);
+}

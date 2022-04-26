@@ -5,7 +5,6 @@
     align-content: center;
     flex-wrap: wrap;
     margin: 100px;
-    /* background-color: bisque; */
 }
 
 input, select{
@@ -30,7 +29,6 @@ label{
     flex-wrap: wrap;
     color: white;
     border-color: white;
-    /* max-width: 800px; */
     margin-left: 65px;
     margin-right: 65px;
 
@@ -45,6 +43,7 @@ label{
 .containerCity, .containerStateZip{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 .containerCity input, .containerStateZip input{
@@ -53,11 +52,15 @@ label{
 .firstNameBox, .lastNameBox, .birthdayBox, .startDateBox, .streetBox, .cityBox, .zipCodeBox, .stateBox, .departementBox{
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .firstNameBox, .lastNameBox, .birthdayBox, .startDateBox{
     width: 100%;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .containerNames, .containerDates{
@@ -98,13 +101,11 @@ form{
     flex-direction: column;
     justify-content: center; 
     flex-wrap: wrap;
-    max-width: 800px;
     background-color: rgb(115, 3, 63);
     border-radius: 3px;
     padding-top: 40px;
     padding-bottom: 40px;
 }
 .department{
-    width: 200px;
     height: 30px;
 }

@@ -2,6 +2,7 @@
 import React from 'react';
 import Form from '../../components/form/Form';
 import Header from '../../components/header/Header';
+import Footer from '../../components/footer/Footer';
 import './CreateEmployee.css'
 
 const CreateEmployee = () => {
@@ -10,6 +11,7 @@ const CreateEmployee = () => {
             <Header />
             <h1>CREATE EMPLOYEE</h1>
             <Form />
+            <Footer />
         </main>
     );
 }
