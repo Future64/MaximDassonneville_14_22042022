@@ -2,15 +2,12 @@ import React from 'react'
 import { useState, useEffect, useContext, useRef, useMemo, useCallback } from 'react'
 import { useParams, useLocation, useMatch, NavLink} from 'react-router-dom'
 import './Form.css'
+import states from '../../utils/states'
 
 const Form = () => {
+
   return (
   <div className="container">
-    <NavLink to="/list-employee">
-      View Current Employees
-    </NavLink>
-
-    <h2>Create Employee</h2>
     <form action="#" id="create-employee">
       <div className="infoEmployee">
         <div className="containerNames">
@@ -55,8 +52,16 @@ const Form = () => {
 
           <div className="containerStateZip">
             <div className="stateBox">
-              <label htmlFor="state">State</label>
-              <select name="state" id="state"></select>
+              <label htmlFor="state" >State</label>
+              <select name="state" id="state" value={states.name}>
+                {states.map((state, i) => (
+                  <option value={state.name} 
+                          key={`${state.abbreviation}-${i}`}>
+                            {state.name}
+                  </option>)
+                  )
+                }
+              </select>
             </div>
 
             <div className="zipCodeBox">
@@ -66,17 +71,21 @@ const Form = () => {
           </div>
       </fieldset>
 
-      <label htmlFor="department">Department</label>
-      <select name="department" id="department">
-          <option>Sales</option>
-          <option>Marketing</option>
-          <option>Engineering</option>
-          <option>Human Resources</option>
-          <option>Legal</option>
-      </select>
+      <div className='departementBox'>
+        <label htmlFor="department">Department</label>
+        <select name="department" id="department">
+            <option>Sales</option>
+            <option>Marketing</option>
+            <option>Engineering</option>
+            <option>Human Resources</option>
+            <option>Legal</option>
+        </select>
+      </div>
     </form>
+    <div className='saveBtn'>
+      <button >Save</button>
+    </div>
 
-    <button >Save</button>
   </div>
   )
 }

@@ -1,26 +1,56 @@
 .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
     margin: 100px;
-    background-color: bisque;
+    /* background-color: bisque; */
 }
 
-input{
+input, select{
     height: 30px;
     border-radius: 3px;
     border: 1px;
-    /* width: 100%; */
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
-form{
-    /* margin: 100px; */
+label{
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
-.infoEmployee, .containerCity, .containerStateZip{
+.address{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: white;
+    border-color: white;
+    /* max-width: 800px; */
+    margin-left: 65px;
+    margin-right: 65px;
+
+}
+
+.infoEmployee{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
 }
-.firstNameBox, .lastNameBox, .birthdayBox, .startDateBox, .streetBox, .cityBox, .zipCodeBox, .stateBox{
+.containerCity, .containerStateZip{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.containerCity input, .containerStateZip input{
+    width: 205px;
+}
+.firstNameBox, .lastNameBox, .birthdayBox, .startDateBox, .streetBox, .cityBox, .zipCodeBox, .stateBox, .departementBox{
     display: flex;
     flex-direction: column;
 }
@@ -39,3 +69,42 @@ form{
     /* width: 100%; */
 }
 
+.departementBox{
+    margin-top: 30px;
+}
+
+button{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    align-content: center; 
+    width: 200px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 3px;
+    background-color: rgb(101, 219, 101);
+    margin-top: 20px;
+}
+.saveBtn{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    align-content: center;   
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    flex-wrap: wrap;
+    max-width: 800px;
+    background-color: rgb(115, 3, 63);
+    border-radius: 3px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.department{
+    width: 200px;
+    height: 30px;
+}
