@@ -1,20 +1,17 @@
 import React from 'react'
-import { useState, useEffect, useContext, useRef, useMemo, useCallback } from 'react'
-import { useParams, useLocation, useMatch, NavLink} from 'react-router-dom'
-import Logo from '../logo/Logo'
+import { useState, useEffect} from 'react'
 import './ModalPlugin.css'
-import './optionPlugin.css'
 
 const ModalPlugin = (props) => {
     const[activeModal, setActiveModal] = useState("")
     const[viewCloseBtn, setViewCloseBtn] = useState("")
     const[responsiveModal, setResponsiveModal] = useState("")
-    const[openAnimModal, setOpenAnimModal] = useState("")
-    const[closeAnimModal, setcloseAnimModal] = useState("")
     const[bgColorModal, setBgColorModal] = useState("")
     const[txtColorModal, setTxtColor] = useState("")
     const[pageOpacityModal, setPageOpacityModal] = useState("")
     const [close, setClose] = useState("")
+    const [content, setContent] = useState("")
+    const [msgBox, setMsgBox] = useState("")
 
 /* Setting the options for the modal. */
     const options = {
@@ -23,18 +20,27 @@ const ModalPlugin = (props) => {
         responsive: props.responsive,
         openAnim: props.openAnim,
         closeAnim: props.closeAnim,
-        bgColor: props.bgColor,
+        content: props.content,
         txtColor: props.txtColor,
         pageOpacity: props.pageOpacity,
     }
 
 /**
- * If the isOpen prop is true, set the activeModal state to "activeModal", otherwise set it to an empty
- * string.
+ * If the modal is open, set the message box to the message box class, set the active modal to the
+ * active modal class, and set the close button to the close button class
  */
     function handleIsOpen(){
-        if(options.isOpen === true){
+        if(options.isOpen === true && options.openAnim == undefined || options.openAnim == false) {
+            setMsgBox("messageBox")
             setActiveModal("activeModal")
+            setClose("")
+        } else if (options.isOpen === true && options.openAnim === true){
+            setMsgBox("messageBoxAnim")
+            setActiveModal("activeModalAnim")
+            setClose("")
+        } else if (options.isOpen === true && options.openAnim === true && options.closeAnim === true){
+            setMsgBox("messageBoxAnim")
+            setActiveModal("activeModalAnimfull")
             setClose("")
         } else {
             setActiveModal("")
@@ -43,48 +49,30 @@ const ModalPlugin = (props) => {
     }
 
 /**
- * If the user has set the onClose option to true, then set the viewCloseBtn class to "viewCloseBtn",
- * otherwise set it to an empty string
+ * It sets the viewCloseBtn class to the appropriate class based on the options.onClose value
  */
     function handleOnClose(){
-        if(options.onClose === true){
-            setViewCloseBtn("viewCloseBtn")
+        if(options.onClose === "rightTop"){
+            setViewCloseBtn("viewCloseBtnRightTop")
+        } else if(options.onClose === "leftTop"){
+            setViewCloseBtn("viewCloseBtnLeftTop")
+        } else if(options.onClose === "leftBottom"){
+            setViewCloseBtn("viewCloseBtnLeftBottom")
+        } else if(options.onClose === "rightBottom"){
+            setViewCloseBtn("viewCloseBtnRightBottom")
         } else {
-            setViewCloseBtn("")
+            setViewCloseBtn("viewCloseBtnRightTop")
         }
     }
 
 /**
- * If the user has set the responsive option to true, then set the responsiveModal class on the modal.
- * Otherwise, remove the responsiveModal class from the modal
+ * If the user has set the responsive option to true, then set the modal to be responsive
  */
     function handleResponsive(){
         if(options.responsive === true){
             setResponsiveModal("responsiveModal")
         } else {
             setResponsiveModal("notResponsive")
-        }
-    }
-
-/**
- * If the openAnim option is set to true, then add the openAnimModal class to the modal
- */
-    function handleOpenAnim(){
-        if(options.openAnim === true){
-            setOpenAnimModal("openAnimModal")
-        } else {
-            setOpenAnimModal("")
-        }
-    }
-
-/**
- * If the closeAnim option is set to true, then add the closeAnimModal class to the modal
- */
-    function handleCloseAnim(){
-        if(options.closeAnim === true){
-            setcloseAnimModal("closeAnimModal")
-        } else {
-            setcloseAnimModal("")
         }
     }
 
@@ -101,61 +89,82 @@ const ModalPlugin = (props) => {
     }
 
 /**
- * If the user wants to change the text color, then set the text color to the color the user wants
+ * The function `handleTxtColor()` is called when the user changes the text color. The function checks
+ * the value of the `options.txtColor` property and sets the text color accordingly
  */
     function handleTxtColor(){
-        if(options.txtColor === true){
-            setTxtColor("txtColorModal")
+        if(options.txtColor === "black" ){
+            setTxtColor("black")
+        } else if(options.txtColor === "green"){
+            setTxtColor("green")
+        } else if(options.txtColor === "red"){
+            setTxtColor("red")
+        } else if(options.txtColor === "orange"){
+            setTxtColor("orange")
+        } else if(options.txtColor === "violet"){
+            setTxtColor("violet")
+        } else if(options.txtColor === "blue"){
+            setTxtColor("blue")
+        } else if(options.txtColor === "yellow"){
+            setTxtColor("yellow")
         } else {
-            setTxtColor("")
+            setTxtColor("black")
         }
     }
 
 /**
- * If the pageOpacity option is set to true, then set the pageOpacityModal class to the
- * pageOpacityModal class, otherwise set it to an empty string
+ * If the pageOpacity option is set to "soft", "standard", "very", or "full", then set the page opacity
+ * to the corresponding value. Otherwise, set the page opacity to "none".
  */
     function handlePageOpacity(){
-        if(options.pageOpacity === true){
-            setPageOpacityModal("pageOpacityModal")
+        if(options.pageOpacity === "soft"){
+            setPageOpacityModal("soft")
+        } else if(options.pageOpacity === "standard"){
+            setPageOpacityModal("standard")
+        } else if(options.pageOpacity === "very"){
+            setPageOpacityModal("very")
+        } else if(options.pageOpacity === "full"){
+            setPageOpacityModal("full")
         } else {
-            setPageOpacityModal("")
+            setPageOpacityModal("none")
         }
     }
 
 /**
- * If the close variable is equal to "close", then set the close variable to "activeModal" and set the
- * ActiveModal variable to "activeModal"
+ * If the close button is clicked, and the closeAnim option is undefined or false, then the modal is
+ * closed. If the closeAnim option is true, then the modal is closed with an animation. If the
+ * closeAnim option is anything else, then the modal is closed without an animation
  */
     function handleCloseModal(){
-        if(close === "close"){
+        if(close === "close" && options.closeAnim === undefined || options.closeAnim === false){
             setClose("activeModal")
             setActiveModal("activeModal")
+        } else if (options.closeAnim === true){ 
+            setActiveModal("activeModalAnimfull")
+        } else {
+            setActiveModal("")
+            setClose("close")
         }
-        setActiveModal("")
-        setClose("close")
     }
 
     useEffect(() => {
         handleIsOpen()
         handleOnClose()
         handleResponsive()
-        handleOpenAnim()
-        handleCloseAnim()
         handleBgColor()
         handleTxtColor()
         handlePageOpacity()
+        setContent(options.content)
     }, [])
 
   return (
-    <div className={`${close} ${activeModal} ${openAnimModal} ${closeAnimModal} ${pageOpacityModal}`}>
-        <div className={`messageBox ${close} ${bgColorModal} ${responsiveModal}`}>
+    <div className={`${close} ${activeModal} ${pageOpacityModal}`}>
+        <div className={`messageBox ${close} ${bgColorModal} ${responsiveModal} ${msgBox}`}>
             <div className={`closeModal ${close} ${viewCloseBtn}`} onClick={(e) => handleCloseModal()}>x</div>
             <div className={`createdMsgBox ${close}`}>
-                <p className={`createdMsg ${close} ${txtColorModal}`}>Employee Created!</p>
+                <p className={`createdMsg ${close} ${txtColorModal}`}>{content}</p>
             </div>
         </div>
-
     </div>
   )
 }

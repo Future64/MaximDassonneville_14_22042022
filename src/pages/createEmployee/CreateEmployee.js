@@ -13,7 +13,15 @@ const CreateEmployee = () => {
             <Header />
             <h1>CREATE EMPLOYEE</h1>
             <Form />
-            <ModalPlugin isOpen={true} onClose={true} responsive={true}/>
+            <ModalPlugin isOpen={true} 
+                         onClose="rightTop"
+                         responsive={true} 
+                         pageOpacity="soft" 
+                         openAnim={true}
+                         closeAnim={true}
+                         txtColor="green"
+                         content="Employee Created!"
+            />
             <Footer />
         </main>
         </>
