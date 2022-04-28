@@ -113,7 +113,7 @@ const MuidataTable = () => {
     selectableRows : "none",
     print: false,
     download: false,
-    responsive: 'standard',
+    responsive: 'simple',
     customBodyRender: (rowIndex, dataIndex) => dataIndex.rowIndex + 1  
   };
 

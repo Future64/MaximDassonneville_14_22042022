@@ -109,3 +109,10 @@ form{
 .department{
     height: 30px;
 }
+.DatePicker{
+    width: 88%;
+}
+
+.react-datepicker__navigation, .react-datepicker__navigation--previous{
+    margin-top: 0px;
+}

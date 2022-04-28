@@ -1,10 +1,17 @@
-import React from 'react'
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 import { useState, useEffect, useContext, useRef, useMemo, useCallback } from 'react'
 import { useParams, useLocation, useMatch, NavLink} from 'react-router-dom'
 import './Form.css'
 import states from '../../utils/states'
+import ModalPlugin from '../modalPlugin/ModalPlugin';
 
 const Form = () => {
+  const  [startDate, setStartDate]  =  useState (new Date())
+
+  function handleSubmit() {
+
+  }
 
   return (
   <div className="container">
@@ -25,12 +32,18 @@ const Form = () => {
         <div className="containerDates">
           <div className="birthdayBox">
             <label htmlFor="date-of-birth">Date of Birth</label>
-            <input id="date-of-birth" type="text" />
+            <DatePicker selected={startDate} 
+                        onChange={(date) => setStartDate(date)}
+                        placeholderText="I have been cleared!"
+                        className='DatePicker'/>
           </div>
 
           <div className="startDateBox">
             <label htmlFor="start-date">Start Date</label>
-            <input id="start-date" type="text" />
+            <DatePicker selected={startDate} 
+                        onChange={(date) => setStartDate(date)} 
+                        placeholderText="I have been cleared!"
+                        className='DatePicker'/>
           </div>
         </div>
         </div>
@@ -83,7 +96,7 @@ const Form = () => {
       </div>
     </form>
     <div className='saveBtn'>
-      <button >Save</button>
+      <button onClick={handleSubmit()}>Save</button>
     </div>
 
   </div>

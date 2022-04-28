@@ -2,3 +2,34 @@
 .tss-1qtl85h-MUIDataTableBodyCell-root{
     margin-left: 16px;
 }
+
+.tss-1qtl85h-MUIDataTableBodyCell-root, .tss-1ls58sa-MUIDataTableBodyCell-simpleCell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -5px;
+    color: rgb(115, 3, 63);
+}
+
+.tss-1akey0g-MUIDataTableHeadCell-data{
+    color: rgb(115, 3, 63);
+}
+
+.MuiTypography-root, .MuiTypography-h6 .tss-hj53wm-MUIDataTableToolbar-titleText .css-2ulfj5-MuiTypography-root{
+    color: rgb(115, 3, 63);
+}
+
+.MuiSvgIcon-root, .MuiSvgIcon-fontSizeMedium, .css-i4bv87-MuiSvgIcon-root{
+    color: rgb(115, 3, 63);
+}
+
+.MuiTablePagination-selectLabel, .css-pdct74-MuiTablePagination-selectLabel{
+    color: rgb(115, 3, 63);
+}
+
+.MuiTablePagination-select, .MuiSelect-select, .MuiSelect-standard, .MuiInputBase-input, .css-194a1fa-MuiSelect-select-MuiInputBase-input{
+    color: rgb(115, 3, 63);
+}
+.MuiTablePagination-displayedRows, .css-levciy-MuiTablePagination-displayedRows{
+    color: rgb(115, 3, 63);
+}
