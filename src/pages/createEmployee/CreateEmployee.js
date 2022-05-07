@@ -4,27 +4,25 @@ import Form from '../../components/form/Form';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import './CreateEmployee.css'
-import ModalPlugin from '../../components/modalPlugin/ModalPlugin';
+import {SimpleReactModalMax} from 'simple-react-modal-max';
 
 const CreateEmployee = () => {
     return (
-        <>
         <main className='main'>
             <Header />
             <h1>CREATE EMPLOYEE</h1>
             <Form />
-            <ModalPlugin isOpen={true} 
-                         onClose="rightTop"
-                         responsive={true} 
-                         pageOpacity="soft" 
-                         openAnim={true}
-                         closeAnim={true}
-                         txtColor="green"
-                         content="Employee Created!"
-            />
+            <SimpleReactModalMax isOpen={true} 
+                                 onClose="rightTop"
+                                 responsive={true} 
+                                 pageOpacity="soft" 
+                                 openAnim={true}
+                                 closeAnim={true}
+                                 txtColor="green"      
+            ><p>Employee Created!</p>
+            </SimpleReactModalMax>
             <Footer />
         </main>
-        </>
     );
 }
 
