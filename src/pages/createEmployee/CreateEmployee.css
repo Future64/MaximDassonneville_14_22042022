@@ -1,14 +1,24 @@
-.main{
-    position: relative;
-    background-color: rgb(135, 0, 72);
-    /* height: 100%; */
-    min-height: 100vh;
-    margin:0 auto;
+.main {
+  position: relative;
+  background-color: rgb(135, 0, 72);
+  /* height: 100%; */
+  min-height: 100vh;
+  margin: 0 auto;
 }
-main h1{
-    display: flex;
-    justify-content: center;
-    color: white;
-    margin-top: 60px;
-    font-size: 40px;
+main h1 {
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin-top: 60px;
+  font-size: 40px;
+}
+
+@media screen and (max-width: 380px) {
+  main h1 {
+    /* display: flex;
+        justify-content: center;
+        color: white;
+        margin-top: 60px; */
+    font-size: 30px;
+  }
 }
