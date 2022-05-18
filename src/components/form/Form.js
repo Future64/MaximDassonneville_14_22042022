@@ -1,30 +1,22 @@
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import { useEffect, useState } from 'react'
+import { useState, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setDisplayModal, setArrayEmployee } from '../../redux/reducer'
-import { useNavigate } from 'react-router-dom'
 import './Form.css'
 import InputBox from '../inputBox/InputBox'
 import states from '../../utils/states'
 
 const Form = () => {
-  const firstNameInput = document.querySelector('#firstName')
-  const lastNameInput = document.querySelector('#lastName')
-  const streetInput = document.querySelector('#street')
-  const cityInput = document.querySelector('#city')
-  const zipCodeInput = document.querySelector('#zipCode')
-  const inputClass = document.querySelectorAll('.input')
-
+  const formRef = useRef()
   const dispatch = useDispatch()
   const arrayEmployee = useSelector(state => {
     return state
   })
-  const navigate = useNavigate()
+
   const [birthDate, setBirthDate] = useState(new Date())
   const [startDate, setStartDate] = useState(new Date())
   const [error, setError] = useState(false)
-  const [borderInput, setBorderInput] = useState('display')
   const [messageError, setMessageError] = useState('')
   const [data, setData] = useState([])
   const [userInputs, setUserInputs] = useState({
@@ -39,15 +31,20 @@ const Form = () => {
     departement: 'Sales',
   })
 
+  /**
+   * It takes the input from the form and sets the state of the form to the input
+   * @param event - the event that triggered the function
+   */
   function handleInputChange(event) {
     const inputName = event.target.id
     setUserInputs({ ...userInputs, [inputName]: event.target.value })
     if (
-      firstNameInput.value.length == 0 &&
-      lastNameInput.value.length == 0 &&
-      streetInput.value.length == 0 &&
-      cityInput.value.length == 0 &&
-      zipCodeInput.value.length == 0
+      formRef.current[0].value.length == 0 ||
+      formRef.current[1].value.length == 0 ||
+      formRef.current[2].value.length == 0 ||
+      formRef.current[3].value.length == 0 ||
+      formRef.current[5].value.length == 0 ||
+      formRef.current[6].value.length == 0
     ) {
       setError(false)
     } else {
@@ -55,16 +52,19 @@ const Form = () => {
     }
   }
 
+  /**
+   * It resets the form, sets the birth date to today, and sets the start date to today
+   */
   function refreshForm() {
-    firstNameInput.value = ''
-    lastNameInput.value = ''
-    streetInput.value = ''
-    cityInput.value = ''
-    zipCodeInput.value = ''
+    formRef.current.reset()
     setBirthDate(new Date())
     setStartDate(new Date())
   }
 
+  /**
+   * It takes the date of birth value from the date picker and sets it to the state
+   * @param e - the event object
+   */
   function handleDateBirthValue(e) {
     setUserInputs({
       ...userInputs,
@@ -72,6 +72,11 @@ const Form = () => {
     })
   }
 
+  /**
+   * It takes the date value from the date picker and sets it to the startDate key in the userInputs
+   * object
+   * @param e - The event object
+   */
   function handleStartDateValue(e) {
     setUserInputs({
       ...userInputs,
@@ -79,13 +84,12 @@ const Form = () => {
     })
   }
 
-  function navigateTo() {
-    navigate('/list-employee')
-  }
-
+  /**
+   * It saves the data in the form and displays it in the table
+   * @param e - the event object
+   */
   function saveSubmit(e) {
     e.preventDefault()
-
     if (error === true) {
       dispatch(setDisplayModal(true))
       const newData = [...data, userInputs]
@@ -99,18 +103,14 @@ const Form = () => {
       }
       refreshForm()
       setMessageError('')
-      // navigateTo()
     }
     setMessageError('You must fill all the fields!')
   }
 
-  // console.log('In userInputs:', userInputs)
-  console.log(error)
-  console.log(firstNameInput)
-  console.log("In state's redux:", arrayEmployee.employee.arrayEmployee)
   return (
     <div className="container">
       <form
+        ref={formRef}
         id="create-employee"
         onSubmit={e => {
           saveSubmit(e)

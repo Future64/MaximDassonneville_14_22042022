@@ -1,7 +1,7 @@
 // import Form from 'components/Form/Form';
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setDisplayModal, setArrayEmployee } from '../../redux/reducer'
+import { setDisplayModal } from '../../redux/reducer'
 import Form from '../../components/form/Form'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
@@ -14,6 +14,11 @@ const CreateEmployee = () => {
     return state
   })
 
+  /**
+   * If the displayModal property of the employee object in the display object is true, then return the
+   * SimpleReactModalMax component
+   * @returns The modal is being returned.
+   */
   function helloModal() {
     if (display.employee.displayModal == true) {
       return (
