@@ -8272,10 +8272,10 @@ signal-exit@^3.0.2, signal-exit@^3.0.3:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.7.tgz#a9a1767f8af84155114eaabd73f99273c8f59ad9"
   integrity sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==
 
-simple-react-modal-max@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/simple-react-modal-max/-/simple-react-modal-max-1.0.0.tgz#801dd03c1edff6ae1481bdea1219657e09f4328a"
-  integrity sha512-WY22LAoVf16Q3FmWfgwDOiOFMOccYZssslaXvE9QMtziz7i9zONR/6pcKWe+OWPRgGSaiwyXf32BkHmc+lNClQ==
+simple-react-modal-max@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/simple-react-modal-max/-/simple-react-modal-max-1.0.1.tgz#ed6a6a9e6b5cf5f028c06d4b41fcabb1515ed27c"
+  integrity sha512-cYBa9kzvw2wyMwGzMSjfch9NmlBztYII0oe6JNe5Y9TKx49hSewuy42woAAWCOxGXVNbWIuGrSm9eNI41nubTg==
   dependencies:
     "@babel/cli" "^7.17.10"
     "@babel/core" "^7.17.10"
