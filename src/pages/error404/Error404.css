@@ -1,0 +1,11 @@
+.boxError {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.boxError h2 {
+  margin-top: 25%;
+  font-size: 55px;
+  font-weight: 900;
+}
