@@ -5,7 +5,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setDisplayModal, setArrayEmployee } from '../../redux/reducer'
 import './Form.css'
 import InputBox from '../inputBox/InputBox'
+import SelectBox from '../selectBox/SelectBox'
 import states from '../../utils/states'
+import departement from '../../utils/departement'
 
 const Form = () => {
   const formRef = useRef()
@@ -165,7 +167,6 @@ const Form = () => {
             </div>
           </div>
         </div>
-
         <fieldset className="address">
           <legend>Address</legend>
 
@@ -188,20 +189,14 @@ const Form = () => {
           </div>
 
           <div className="containerStateZip">
-            <div className="stateBox">
-              <label htmlFor="state">State</label>
-              <select
-                name="state"
-                id="state"
-                value={states.name}
-                onChange={handleInputChange}>
-                {states.map((state, i) => (
-                  <option value={state.name} key={`${state.abbreviation}-${i}`}>
-                    {state.name}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <SelectBox
+              className="stateBox"
+              name="state"
+              id="state"
+              value={states[0].name}
+              onChange={handleInputChange}
+              options={states}
+            />
 
             <InputBox
               id="zipCode"
@@ -212,20 +207,14 @@ const Form = () => {
             />
           </div>
         </fieldset>
-
-        <div className="departementBox">
-          <label htmlFor="departement">Departement</label>
-          <select
-            name="departement"
-            id="departement"
-            onChange={handleInputChange}>
-            <option>Sales</option>
-            <option>Marketing</option>
-            <option>Engineering</option>
-            <option>Human Resources</option>
-            <option>Legal</option>
-          </select>
-        </div>
+        <SelectBox
+          className="departementBox"
+          name="departement"
+          id="departement"
+          value={departement[0].option}
+          onChange={handleInputChange}
+          options={departement}
+        />
       </form>
       <div className="saveBtn">
         <button form="create-employee" type="submit">
