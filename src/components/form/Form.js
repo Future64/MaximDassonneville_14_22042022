@@ -220,7 +220,9 @@ const Form = () => {
         <button form="create-employee" type="submit">
           Save
         </button>
-        <span className={error === true ? 'none' : 'msgError'}>
+        <span
+          data-testid="Errormsg"
+          className={error === true ? 'none' : 'msgError'}>
           {messageError}
         </span>
       </div>

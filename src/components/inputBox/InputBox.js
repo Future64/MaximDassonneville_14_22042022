@@ -6,7 +6,7 @@ const InputBox = ({ className, id, content, type, onChange }) => {
   return (
     <div className={className}>
       <label htmlFor={id}>{content}</label>
-      <input id={id} type={type} onChange={onChange} />
+      <input data-testid={id} id={id} type={type} onChange={onChange} />
     </div>
   )
 }
